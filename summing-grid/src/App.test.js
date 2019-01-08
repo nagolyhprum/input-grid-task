@@ -74,6 +74,23 @@ it("get the proper output value", () => {
 })
 
 it("handle thousand, million, billion, and trillion", () => {
-  expect(transformValue(1234567)).toEqual("1.23M");
-  expect(transformValue(123456)).toEqual("123K");
+  expect(transformValue(1230)).toEqual("1.23K");
+  expect(transformValue(12300)).toEqual("12.3K");
+  expect(transformValue(123000)).toEqual("123K");
+
+  expect(transformValue(1230000)).toEqual("1.23M");
+  expect(transformValue(12300000)).toEqual("12.3M");
+  expect(transformValue(123000000)).toEqual("123M");
+
+  expect(transformValue(1230000000)).toEqual("1.23B");
+  expect(transformValue(12300000000)).toEqual("12.3B");
+  expect(transformValue(123000000000)).toEqual("123B");
+
+  expect(transformValue(1230000000000)).toEqual("1.23T");
+  expect(transformValue(12300000000000)).toEqual("12.3T");
+  expect(transformValue(123000000000000)).toEqual("123T");
+
+  expect(transformValue(1234000000000)).toEqual("1.23T");
+  expect(transformValue(12340000000000)).toEqual("12.3T");
+  expect(transformValue(123400000000000)).toEqual("123T");
 })

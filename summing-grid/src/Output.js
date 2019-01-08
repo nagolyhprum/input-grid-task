@@ -9,7 +9,19 @@ class Output extends Component {
   }
 }
 
+const units = "TBMK"
+const start = 1000000000000
+
 export const transformValue = input => {
+  let current = start, index = 0
+  while(current > 1) {
+    if(input > current) {
+      const output = `${input / current}`
+      return output[0] + output[1] + output[2] + (output[3] && output[3] !== "." ? output[3] : "") + units[index]
+    }
+    current /= 1000
+    index++
+  }
   return `${input}`
 }
 
