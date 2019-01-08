@@ -6,8 +6,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers'
-import { setValue } from './actions'
-import inputgrid from './reducers/inputgrid'
+import { setValue } from './actions/inputgrid'
+import inputgrid, { DEFAULT_VALUE } from './reducers/inputgrid'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -42,9 +42,8 @@ it('renders 1 output', () => {
 });
 
 it("can update the value of the state", () => {
-  const state = reducers()
   const index = 1, value = 30
-  expect(inputgrid(state, setValue(index, value))).toEqual([{
+  expect(inputgrid(DEFAULT_VALUE, setValue(index, value))).toEqual([{
     value : 0
   }, {
     value : 30
