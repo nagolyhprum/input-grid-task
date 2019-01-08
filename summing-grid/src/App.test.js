@@ -9,6 +9,7 @@ import reducers from './reducers'
 import { setValue } from './actions/inputgrid'
 import inputgrid, { DEFAULT_VALUE } from './reducers/inputgrid'
 import InputField from './InputField'
+import Output from './Output'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -60,4 +61,21 @@ it("<InputField/> shows the proper value", () => {
     </Provider>
   );
   expect(wrapper.find("input").prop("value")).toEqual("0");
+})
+
+it("<Output/> shows the proper value", () => {
+  const wrapper = render(
+    <Provider store={createStore(reducers, {
+      inputgrid : [{
+        value : 10
+      }, {
+        value : 20
+      }, {
+        value : 30
+      }]
+    })}>
+      <Output/>
+    </Provider>
+  );
+  expect(wrapper.find(".output").html()).toEqual("60");
 })
