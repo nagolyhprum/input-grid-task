@@ -1,18 +1,29 @@
+html, body, .App {
+  width : 100%;
+  height : 100%;
+  padding : 0;
+  margin : 0;
+  border : 0;
+}
+
 .App {
-  text-align: center;
+  display : flex;
+  flex-direction: row;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App .row {
+  display : flex;
+  flex-direction: row;
+  flex-grow : 1;
+  width : 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App .row .output, .App .row .field {
+  flex-grow : 1;
+  width : 0;
 }
 
-.App-intro {
-  font-size: large;
+.App .row .field input {
+  width : 100%;
+  box-sizing: border-box;
 }

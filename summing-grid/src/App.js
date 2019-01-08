@@ -8,11 +8,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="row">
           <InputField/>
           <InputField/>
         </div>
-        <div>
+        <div className="row">
           <InputField/>
           <Output/>
         </div>
