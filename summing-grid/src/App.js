@@ -9,11 +9,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="row">
-          <InputField/>
-          <InputField/>
+          <InputField index={0}/>
+          <InputField index={1}/>
         </div>
         <div className="row">
-          <InputField/>
+          <InputField index={2}/>
           <Output/>
         </div>
       </div>

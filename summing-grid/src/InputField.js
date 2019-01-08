@@ -5,10 +5,12 @@ class InputField extends Component {
   render() {
     return (
       <div className="field">
-        <input type="number"/>
+        <input value={this.props.value} type="number"/>
       </div>
     )
   }
 }
 
-export default connect()(InputField)
+export default connect((state, props) => ({
+  value : state.inputgrid[props.index].value
+}))(InputField)
