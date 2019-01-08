@@ -8,6 +8,7 @@ import { createStore } from 'redux'
 import reducers from './reducers'
 import { setValue } from './actions/inputgrid'
 import inputgrid, { DEFAULT_VALUE } from './reducers/inputgrid'
+import InputField from './InputField'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -50,4 +51,13 @@ it("can update the value of the state", () => {
   }, {
     value : 0
   }])
+})
+
+it("<InputField/> shows the proper value", () => {
+  const wrapper = render(
+    <Provider store={store}>
+      <InputField index={1} />
+    </Provider>
+  );
+  expect(wrapper.find("input").prop("value")).toEqual("0");
 })

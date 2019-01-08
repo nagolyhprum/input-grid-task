@@ -5,9 +5,10 @@ import App from './App';
 
 import reducers from './reducers'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import logger from 'redux-logger'
 
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(logger))
 
 ReactDOM.render(
   <Provider store={store}>

@@ -5,7 +5,7 @@ class InputField extends Component {
   render() {
     return (
       <div className="field">
-        <input/>
+        <input type="number"/>
       </div>
     )
   }
