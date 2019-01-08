@@ -4,7 +4,6 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log(this.props.inputgrid)
     return (
       <div className="App">
         <p className="App-intro">
