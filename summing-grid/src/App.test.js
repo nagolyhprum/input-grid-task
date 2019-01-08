@@ -44,7 +44,7 @@ it('renders 1 output', () => {
 it("can update the value of the state", () => {
   const state = reducers()
   const index = 1, value = 30
-  expect(inputgrid(state, setValue())).toEqual([{
+  expect(inputgrid(state, setValue(index, value))).toEqual([{
     value : 0
   }, {
     value : 30
