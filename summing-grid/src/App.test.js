@@ -29,3 +29,12 @@ it('renders 3 input fields', () => {
     );
     expect(wrapper.find(".field")).toHaveLength(3);
 });
+
+it('renders 1 output', () => {
+    const wrapper = render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    expect(wrapper.find(".output")).toHaveLength(1);
+});
