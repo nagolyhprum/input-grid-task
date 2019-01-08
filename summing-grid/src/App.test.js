@@ -9,7 +9,7 @@ import reducers from './reducers'
 import { setValue } from './actions/inputgrid'
 import inputgrid, { DEFAULT_VALUE } from './reducers/inputgrid'
 import InputField from './InputField'
-import Output from './Output'
+import Output, { getValue as getOutputValue, transformValue } from './Output'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -63,19 +63,17 @@ it("<InputField/> shows the proper value", () => {
   expect(wrapper.find("input").prop("value")).toEqual("0");
 })
 
-it("<Output/> shows the proper value", () => {
-  const wrapper = render(
-    <Provider store={createStore(reducers, {
-      inputgrid : [{
-        value : 10
-      }, {
-        value : 20
-      }, {
-        value : 30
-      }]
-    })}>
-      <Output/>
-    </Provider>
-  );
-  expect(wrapper.find(".output").html()).toEqual("60");
+it("get the proper output value", () => {
+  expect(getOutputValue([{
+    value : 10
+  }, {
+    value : 20
+  }, {
+    value : 30
+  }])).toEqual("60");
+})
+
+it("handle thousand, million, billion, and trillion", () => {
+  expect(transformValue(1234567)).toEqual("1.23M");
+  expect(transformValue(123456)).toEqual("123K");
 })
