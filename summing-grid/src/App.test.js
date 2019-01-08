@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -22,7 +22,7 @@ it('renders without crashing', () => {
 });
 
 it('renders 3 input fields', () => {
-    const wrapper = shallow(
+    const wrapper = render(
       <Provider store={store}>
         <App />
       </Provider>
